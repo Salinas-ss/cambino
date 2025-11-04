@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SeriesService } from '../../services/series-service';
+import { Serie } from '../../model/seriesinterface';
 
 @Component({
   selector: 'app-series',
@@ -7,7 +8,7 @@ import { SeriesService } from '../../services/series-service';
   styleUrls: ['./series.css'],
 })
 export class SeriesComponent {
-  series: any[] = [];
+  series: Serie[] = [];
 
   constructor(private oSeriesService: SeriesService) {}
 
@@ -16,8 +17,7 @@ export class SeriesComponent {
   }
 
   getSeries() {
-    this.oSeriesService.getAll().subscribe((shows: any[]) => {
-      console.log(shows);
+    this.oSeriesService.getAll().subscribe((shows: Serie[]) => {
       this.series = shows;
     });
   }
