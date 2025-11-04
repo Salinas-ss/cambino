@@ -1,0 +1,13 @@
+<h2>Lista de Series de TV</h2>
+
+@for (item of series; track $index) {
+  <div>
+    <img [src]="item.image?.medium" alt="{{ item.name }}" width="150" />
+    <h3>{{ item.name }}</h3>
+    <p><strong>Idioma:</strong> {{ item.language }}</p>
+    <p><strong>Géneros:</strong> {{ item.genres.join(', ') }}</p>
+    <p><strong>Puntuación:</strong> {{ item.rating?.average || 'N/A' }}</p>
+    <hr>
+  </div>
+}
+
